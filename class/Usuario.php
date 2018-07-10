@@ -6,38 +6,38 @@ class Usuario {
 	private $deslogin;
 	private $dessenha;
 	private $dtcadastro;
+		//setter and getters
+		public function getIdusuario(){
+			return $this->idusuario;
+		}
 
-	public function getIdusuario(){
-		return $this->idusuario;
-	}
+		public function setIdusuario($value){
+			$this->idusuario = $value;
+		}
 
-	public function setIdusuario($value){
-		$this->idusuario = $value;
-	}
+		public function getDeslogin(){
+			return $this->deslogin;
+		}
 
-	public function getDeslogin(){
-		return $this->deslogin;
-	}
+		public function setDeslogin($value){
+			$this->deslogin = $value;
+		}
 
-	public function setDeslogin($value){
-		$this->deslogin = $value;
-	}
+		public function getDessenha(){
+			return $this->dessenha;
+		}
 
-	public function getDessenha(){
-		return $this->dessenha;
-	}
+		public function setDessenha($value){
+			$this->dessenha = $value;
+		}
 
-	public function setDessenha($value){
-		$this->dessenha = $value;
-	}
+		public function getDtcadastro(){
+			return $this->dtcadastro;
+		}
 
-	public function getDtcadastro(){
-		return $this->dtcadastro;
-	}
-
-	public function setDtcadastro($value){
-		$this->dtcadastro = $value;
-	}
+		public function setDtcadastro($value){
+			$this->dtcadastro = $value;
+		}
 
 	public function loadbyId($id){
 
@@ -111,6 +111,21 @@ class Usuario {
 		if(count($results) > 0){
 			$this->setData($results[0]);
 		}
+	}
+
+	public function update($login, $password){
+
+		$this->setDeslogin($login);
+		$this->setDessenha($password);
+
+		$sql = new Sql();
+
+		$sql->query("UPDATE tb_usuarios SET delogin = :LOGIN, dessenha = :PASSWORD WHERE idusuario = :ID", array(
+			':LOGIN'=>$this->getDeslogin(),
+			':PASSWORD'=>$this->getDessenha(),
+			':ID'=>$this->getIdusuario()
+		));
+
 	}
 
 	public function __construct($login = "", $password= ""){

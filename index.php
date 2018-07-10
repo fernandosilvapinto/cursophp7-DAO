@@ -42,6 +42,15 @@ $aluno->insert();
 echo $aluno;
 _______________________*/
 
+$usuario = new Usuario();
+
+$usuario->loadById(8);
+
+$usuario->update("professor", "QWERTY");
+
+echo $usuario;
+
+
 
 
 ?>
