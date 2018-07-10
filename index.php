@@ -24,11 +24,25 @@ __________________*/
 //carrega usuario pelo login
 $search = Usuario::search("jo");
 echo json_encode($search);
-?>
 ________________________*/
 
+/*______________________
+//realiza validação dos campos usuario e senha
 $usuario = new Usuario();
-
 $usuario->login("jose", "123456");
-
 echo $usuario;
+____________________*/
+
+/*______________________
+//inserindo usuarios
+$aluno = new Usuario("bolinha", "ninguem");
+//$aluno->setDeslogin("bananada");
+//$aluno->setDessenha("abobrinha");
+$aluno->insert();
+echo $aluno;
+_______________________*/
+
+
+
+?>
+
