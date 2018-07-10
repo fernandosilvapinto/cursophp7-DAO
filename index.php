@@ -42,12 +42,18 @@ $aluno->insert();
 echo $aluno;
 _______________________*/
 
+/*____________________
+//atualiza usuario
+$usuario = new Usuario();
+$usuario->loadById(8);
+$usuario->update("professor", "QWERTY");
+echo $usuario;
+____________________*/
+
 $usuario = new Usuario();
 
-$usuario->loadById(8);
-
-$usuario->update("professor", "QWERTY");
-
+$usuario->loadById(16);
+$usuario->delete();
 echo $usuario;
 
 
